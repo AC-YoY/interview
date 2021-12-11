@@ -84,6 +84,7 @@ CDN 流程:
 [《webpack 配置 proxy 反向代理的原理是什么？》](https://segmentfault.com/q/1010000017502539/a-1020000017532348)
 
 ### HTTP 1.0, 1.1, 2.0 之间有哪些区别？
+> HTTP 的优化方向：带宽、延迟
 
 HTTP 1.0 => HTTP 1.1 变化：
 - 连接方面：http1.1 默认使用持久连接（keep-alive），多个 http 请求复用同一个 TCP 连接。
@@ -95,12 +96,18 @@ HTTP 1.0 => HTTP 1.1 变化：
 - 请求方法新增：如 PUT、HEAD、OPTIONS 等
 
 HTTP 1.1 => HTTP 2.0 变化：
-
+- 新的二进制格式(Binary Format)：2.0 基于二进制解析，1.x 基于文本解析
+- 多路服用: 一个request对应一个id，这样一个连接上可以有多个request（类似CPU时间片）
+  - 降低了慢启动的影响（只有一个链接，越来越快）
+- header 压缩
+- 服务端推送
+  - 需要主动配置（nginx: http2_push /style.css;）
 
 详细资料可以参考：
 [《HTTP1.0、HTTP1.1 和 HTTP2.0 的区别》](https://juejin.im/entry/5981c5df518825359a2b9476)
 [《HTTP 协议入门》](http://www.ruanyifeng.com/blog/2016/08/http.html)
 [《网络---一篇文章详解请求头 Host 的概念》](https://blog.csdn.net/netdxy/article/details/51195560)
+[阮一峰 HTTP/2 服务器推送（Server Push）教程](https://www.ruanyifeng.com/blog/2018/03/http2_server_push.html)
 
 ### 网站域名加 www 与不加 www 的区别？
 - 没有 www 的裸域名
