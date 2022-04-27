@@ -1,3 +1,7 @@
+欠的：
+    1. flex 布局
+    2. Grid 布局
+    3. CSS 在移动端的兼容注意点？
 
 ### 1.介绍一下标准的 CSS 的盒子模型？低版本 IE 的盒子模型有什么不同的？
 
@@ -315,14 +319,15 @@ div {
 -水平垂直居中一
 
 ```css
-/*确定容器的宽高宽500高300的层设置层的外边距div{*/
-position: absolute;/*绝对定位*/
-width: 500px;
-height: 300px;
-top: 50%;
-left: 50%;
-margin: -150px00-250px;/*外边距为自身宽高的一半*/
-background-color: pink;/*方便看效果*/
+/* 确定容器的宽高宽500高300的层设置层的外边距 */
+div {
+    position: absolute; /*绝对定位*/
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px; /*外边距为自身宽高的一半*/
+    background-color: pink; /*方便看效果*/
 }
 ```
 
@@ -344,7 +349,7 @@ div {
 -水平垂直居中三
 
 ```css
-/*利用flex布局实际使用时应考虑兼容性*/
+/* 利用flex布局实际使用时应考虑兼容性 */
 .container {
   display: flex;
   align-items: center; /*垂直居中*/
@@ -360,7 +365,7 @@ div {
 -水平垂直居中四
 
 ```css
-/*利用text-align:center和vertical-align:middle属性*/
+/* 利用text-align:center和vertical-align:middle属性 */
 .container {
   position: fixed;
   top: 0;
